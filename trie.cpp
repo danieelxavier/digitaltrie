@@ -314,7 +314,7 @@ vector<int> Trie::query(string query, int quant)
 	detail_query_elements(words_query); // faz a consulta dos restos das palavras
 	
 	int i;
-	for(i = 0; i < n_elements_found; i++){
+	for(i = 0; i < n_elements_found && i < quant; i++){
 		cout << elements_found[i].element->word << endl;
 		v.push_back(elements_found[i].element->id);
 	}
@@ -386,13 +386,9 @@ void Trie::insert_machine(string path){
  
      ifstream myReadFile;
      string line;
- 
- 
+
      myReadFile.open(path);
- 
-     cout << "Carregando base de dados...." <<endl;
- 
- 
+     cout << "Loading database...." <<endl;
      if (myReadFile.is_open())
      {
          while (getline(myReadFile, line))
@@ -400,7 +396,7 @@ void Trie::insert_machine(string path){
             vector<string> sep = util.split(line, ' ');
 			string element_name;
 			
-			cout << sep[0] << endl;
+			// cout << sep[0] << endl;
 			
 			int id = atoi(sep[0].c_str());
 			

@@ -5,14 +5,13 @@ using namespace std;
 
 int main()
 {
-	cout << "hello" << endl;
 	Trie *t = new Trie();
 	t->Init("paises");
 
 	t->InsertElement(1, "anderson");
 	t->UpdateElement(1, "and");
 	t->RemoveElement(1);
-	vector<int> v = t->Search("A", 20);
+	vector<int> v = t->Search("A", 5);
 
 
 	cout << "Result:" << endl;
