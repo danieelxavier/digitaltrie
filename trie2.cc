@@ -670,6 +670,10 @@ string query(string query, int quant)
 	sortElements(elements_found, 0, n_elements_found-1); // ordena as respostas dos produtos
 	detail_query_elements(words_query); // faz a consulta dos restos das palavras
 	
+	int i;
+	for(i = 0; i < n_elements_found; i++){
+		cout << elements_found[i].element->word << endl;
+	}
 
     n_elements_found = 0;
     
@@ -832,10 +836,11 @@ int main()
 		
 		string found;
 		
-		if(key == 1 && spl.size() == 3){ //busca somente produto -> 3*string de busca*num de retorno
+		if(key == 1 && spl.size() == 3){ //busca somente produto -> 1*string de busca*num de retorno
 			int quant = atoi(spl[2].c_str());
 			found = query(spl[1], quant);
-			cout << spl[1] << endl;
+			//cout << spl[1] << endl;
+			
 		}
 		else if(key == 0 && spl.size() == 3){ //insere item -> 0*id*nome
 			int id = atoi(spl[1].c_str());
@@ -849,7 +854,7 @@ int main()
 			}
 			
 		}
-		else if(key == 9 && spl.size() == 2){ //remove um item -> 4*id
+		else if(key == 9 && spl.size() == 2){ //remove um item -> 9*id
 			int id = atoi(spl[1].c_str());
 
 			if(exist_element(id)){
@@ -861,7 +866,7 @@ int main()
 			}
 				
 		}
-		else if(key == 2 && spl.size() == 3){ //altera item -> 9*id*nome
+		else if(key == 2 && spl.size() == 3){ //altera item -> 2*id*nome
 			int id = atoi(spl[1].c_str());
 
 			if(exist_element(id)){
@@ -877,7 +882,7 @@ int main()
 			found = "comando_invalido";
 		}
 		
-		cout << found.c_str() << endl << endl;
+		cout << endl << found.c_str() << endl << endl;
         
         cout << "------------------------------------------------------" << endl;
 
